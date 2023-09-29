@@ -1,277 +1,176 @@
-<?xml version="1.0" encoding="UTF-8"?>
+MongoDb
+Introduction
+It is a non sql database. Stored Data in single document based . In document based format, Store data in key value format like json. Rather calling json it’s a bson (binary javascript object notation).We have document to store data in key value pair. Document is a group of key value pair. Collection is a group of document. Database is a group of collection.
+Document which store data can also be called object.
 
-<office:document xmlns:officeooo="http://openoffice.org/2009/office" xmlns:css3t="http://www.w3.org/TR/css3-text/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rpt="http://openoffice.org/2005/report" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:xforms="http://www.w3.org/2002/xforms" office:version="1.3" office:mimetype="application/vnd.oasis.opendocument.text">
- <office:meta><dc:date>2023-08-11T17:36:52.155921388</dc:date><meta:editing-duration>PT17M27S</meta:editing-duration><meta:editing-cycles>5</meta:editing-cycles><meta:generator>LibreOffice/7.3.7.2$Linux_X86_64 LibreOffice_project/30$Build-2</meta:generator><meta:document-statistic meta:table-count="0" meta:image-count="0" meta:object-count="0" meta:page-count="1" meta:paragraph-count="5" meta:word-count="75" meta:character-count="432" meta:non-whitespace-character-count="361"/></office:meta>
- <office:settings>
-  <config:config-item-set config:name="ooo:view-settings">
-   <config:config-item config:name="ViewAreaTop" config:type="long">0</config:config-item>
-   <config:config-item config:name="ViewAreaLeft" config:type="long">0</config:config-item>
-   <config:config-item config:name="ViewAreaWidth" config:type="long">48897</config:config-item>
-   <config:config-item config:name="ViewAreaHeight" config:type="long">21909</config:config-item>
-   <config:config-item config:name="ShowRedlineChanges" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="InBrowseMode" config:type="boolean">false</config:config-item>
-   <config:config-item-map-indexed config:name="Views">
-    <config:config-item-map-entry>
-     <config:config-item config:name="ViewId" config:type="string">view2</config:config-item>
-     <config:config-item config:name="ViewLeft" config:type="long">33087</config:config-item>
-     <config:config-item config:name="ViewTop" config:type="long">2988</config:config-item>
-     <config:config-item config:name="VisibleLeft" config:type="long">0</config:config-item>
-     <config:config-item config:name="VisibleTop" config:type="long">0</config:config-item>
-     <config:config-item config:name="VisibleRight" config:type="long">48895</config:config-item>
-     <config:config-item config:name="VisibleBottom" config:type="long">21908</config:config-item>
-     <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
-     <config:config-item config:name="ViewLayoutColumns" config:type="short">1</config:config-item>
-     <config:config-item config:name="ViewLayoutBookMode" config:type="boolean">false</config:config-item>
-     <config:config-item config:name="ZoomFactor" config:type="short">100</config:config-item>
-     <config:config-item config:name="IsSelectedFrame" config:type="boolean">false</config:config-item>
-     <config:config-item config:name="KeepRatio" config:type="boolean">false</config:config-item>
-     <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
-    </config:config-item-map-entry>
-   </config:config-item-map-indexed>
-  </config:config-item-set>
-  <config:config-item-set config:name="ooo:configuration-settings">
-   <config:config-item config:name="PrintProspect" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrintReversed" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrintSingleJobs" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrintLeftPages" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="PrintTables" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="PrintControls" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="PrintPageBackground" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="PrintDrawings" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="PrintBlackFonts" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrintAnnotationMode" config:type="short">0</config:config-item>
-   <config:config-item config:name="PrintTextPlaceholder" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="ProtectFields" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="ProtectBookmarks" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="EmptyDbFieldHidesPara" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="DisableOffPagePositioning" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="SubtractFlysAnchoredAtFlys" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PropLineSpacingShrinksFirstLine" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="ApplyParagraphMarkFormatToNumbering" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="GutterAtTop" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="TreatSingleColumnBreakAsPageBreak" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="EmbedSystemFonts" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="EmbedComplexScriptFonts" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="EmbedAsianScriptFonts" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="EmbedLatinScriptFonts" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="EmbedOnlyUsedFonts" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="ContinuousEndnotes" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="EmbedFonts" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="ClippedPictures" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="FloattableNomargins" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="UnbreakableNumberings" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="HeaderSpacingBelowLastPara" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="AllowPrintJobCancel" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="UseOldPrinterMetrics" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="TabOverMargin" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="TabsRelativeToIndent" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="UseOldNumbering" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="InvertBorderSpacing" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrintPaperFromSetup" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="UpdateFromTemplate" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="CurrentDatabaseCommandType" config:type="int">0</config:config-item>
-   <config:config-item config:name="LinkUpdateMode" config:type="short">1</config:config-item>
-   <config:config-item config:name="AddParaSpacingToTableCells" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="FrameAutowidthWithMorePara" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="CurrentDatabaseCommand" config:type="string"/>
-   <config:config-item config:name="PrinterIndependentLayout" config:type="string">high-resolution</config:config-item>
-   <config:config-item config:name="ApplyUserData" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="PrintFaxName" config:type="string"/>
-   <config:config-item config:name="CurrentDatabaseDataSource" config:type="string"/>
-   <config:config-item config:name="ClipAsCharacterAnchoredWriterFlyFrames" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="IsKernAsianPunctuation" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="SaveThumbnail" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="UseFormerTextWrapping" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="AddExternalLeading" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="AddParaTableSpacing" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="StylesNoDefault" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="ChartAutoUpdate" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="PrinterSetup" config:type="base64Binary"/>
-   <config:config-item config:name="AddParaTableSpacingAtStart" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="Rsid" config:type="int">839462</config:config-item>
-   <config:config-item config:name="EmbeddedDatabaseName" config:type="string"/>
-   <config:config-item config:name="FieldAutoUpdate" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="OutlineLevelYieldsNumbering" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="FootnoteInColumnToPageEnd" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="AlignTabStopPosition" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="CharacterCompressionType" config:type="short">0</config:config-item>
-   <config:config-item config:name="PrinterName" config:type="string"/>
-   <config:config-item config:name="SaveGlobalDocumentLinks" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrinterPaperFromSetup" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="UseFormerLineSpacing" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="AddParaLineSpacingToTableCells" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="UseFormerObjectPositioning" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrintGraphics" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="SurroundTextWrapSmall" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="ConsiderTextWrapOnObjPos" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="MsWordCompTrailingBlanks" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="TabAtLeftIndentForParagraphsInList" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrintRightPages" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="TabOverSpacing" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="IgnoreFirstLineIndentInNumbering" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="RedlineProtectionKey" config:type="base64Binary"/>
-   <config:config-item config:name="DoNotJustifyLinesWithManualBreak" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrintProspectRTL" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="PrintEmptyPages" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="DoNotResetParaAttrsForNumFont" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="AddFrameOffsets" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="IgnoreTabsAndBlanksForLineCalculation" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="LoadReadonly" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="DoNotCaptureDrawObjsOnPage" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="AddVerticalFrameOffsets" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="UnxForceZeroExtLeading" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="IsLabelDocument" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="TableRowKeep" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="RsidRoot" config:type="int">750535</config:config-item>
-   <config:config-item config:name="PrintHiddenText" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="ProtectForm" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="MsWordCompMinLineHeightByFly" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="BackgroundParaOverDrawings" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="SaveVersionOnClose" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="MathBaselineAlignment" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="SmallCapsPercentage66" config:type="boolean">false</config:config-item>
-   <config:config-item config:name="CollapseEmptyCellPara" config:type="boolean">true</config:config-item>
-   <config:config-item config:name="TabOverflow" config:type="boolean">true</config:config-item>
-  </config:config-item-set>
- </office:settings>
- <office:scripts>
-  <office:script script:language="ooo:Basic">
-   <ooo:libraries xmlns:ooo="http://openoffice.org/2004/office" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <ooo:library-embedded ooo:name="Standard"/>
-   </ooo:libraries>
-  </office:script>
- </office:scripts>
- <office:font-face-decls>
-  <style:font-face style:name="Liberation Sans" svg:font-family="&apos;Liberation Sans&apos;" style:font-family-generic="swiss" style:font-pitch="variable"/>
-  <style:font-face style:name="Liberation Serif" svg:font-family="&apos;Liberation Serif&apos;" style:font-family-generic="roman" style:font-pitch="variable"/>
-  <style:font-face style:name="Lohit Devanagari" svg:font-family="&apos;Lohit Devanagari&apos;"/>
-  <style:font-face style:name="Lohit Devanagari1" svg:font-family="&apos;Lohit Devanagari&apos;" style:font-family-generic="system" style:font-pitch="variable"/>
-  <style:font-face style:name="Noto Sans CJK SC" svg:font-family="&apos;Noto Sans CJK SC&apos;" style:font-family-generic="system" style:font-pitch="variable"/>
-  <style:font-face style:name="Noto Serif CJK SC" svg:font-family="&apos;Noto Serif CJK SC&apos;" style:font-family-generic="system" style:font-pitch="variable"/>
- </office:font-face-decls>
- <office:styles>
-  <style:default-style style:family="graphic">
-   <style:graphic-properties svg:stroke-color="#3465a4" draw:fill-color="#729fcf" fo:wrap-option="no-wrap" draw:shadow-offset-x="0.1181in" draw:shadow-offset-y="0.1181in" draw:start-line-spacing-horizontal="0.1114in" draw:start-line-spacing-vertical="0.1114in" draw:end-line-spacing-horizontal="0.1114in" draw:end-line-spacing-vertical="0.1114in" style:flow-with-text="false"/>
-   <style:paragraph-properties style:text-autospace="ideograph-alpha" style:line-break="strict" style:writing-mode="lr-tb" style:font-independent-line-spacing="false">
-    <style:tab-stops/>
-   </style:paragraph-properties>
-   <style:text-properties style:use-window-font-color="true" loext:opacity="0%" style:font-name="Liberation Serif" fo:font-size="12pt" fo:language="en" fo:country="US" style:letter-kerning="true" style:font-name-asian="Noto Serif CJK SC" style:font-size-asian="10.5pt" style:language-asian="zh" style:country-asian="CN" style:font-name-complex="Lohit Devanagari1" style:font-size-complex="12pt" style:language-complex="hi" style:country-complex="IN"/>
-  </style:default-style>
-  <style:default-style style:family="paragraph">
-   <style:paragraph-properties fo:hyphenation-ladder-count="no-limit" style:text-autospace="ideograph-alpha" style:punctuation-wrap="hanging" style:line-break="strict" style:tab-stop-distance="0.4925in" style:writing-mode="page"/>
-   <style:text-properties style:use-window-font-color="true" loext:opacity="0%" style:font-name="Liberation Serif" fo:font-size="12pt" fo:language="en" fo:country="US" style:letter-kerning="true" style:font-name-asian="Noto Serif CJK SC" style:font-size-asian="10.5pt" style:language-asian="zh" style:country-asian="CN" style:font-name-complex="Lohit Devanagari1" style:font-size-complex="12pt" style:language-complex="hi" style:country-complex="IN" fo:hyphenate="false" fo:hyphenation-remain-char-count="2" fo:hyphenation-push-char-count="2" loext:hyphenation-no-caps="false"/>
-  </style:default-style>
-  <style:default-style style:family="table">
-   <style:table-properties table:border-model="collapsing"/>
-  </style:default-style>
-  <style:default-style style:family="table-row">
-   <style:table-row-properties fo:keep-together="auto"/>
-  </style:default-style>
-  <style:style style:name="Standard" style:family="paragraph" style:class="text"/>
-  <style:style style:name="Heading" style:family="paragraph" style:parent-style-name="Standard" style:next-style-name="Text_20_body" style:class="text">
-   <style:paragraph-properties fo:margin-top="0.1665in" fo:margin-bottom="0.0835in" style:contextual-spacing="false" fo:keep-with-next="always"/>
-   <style:text-properties style:font-name="Liberation Sans" fo:font-family="&apos;Liberation Sans&apos;" style:font-family-generic="swiss" style:font-pitch="variable" fo:font-size="14pt" style:font-name-asian="Noto Sans CJK SC" style:font-family-asian="&apos;Noto Sans CJK SC&apos;" style:font-family-generic-asian="system" style:font-pitch-asian="variable" style:font-size-asian="14pt" style:font-name-complex="Lohit Devanagari1" style:font-family-complex="&apos;Lohit Devanagari&apos;" style:font-family-generic-complex="system" style:font-pitch-complex="variable" style:font-size-complex="14pt"/>
-  </style:style>
-  <style:style style:name="Text_20_body" style:display-name="Text body" style:family="paragraph" style:parent-style-name="Standard" style:class="text">
-   <style:paragraph-properties fo:margin-top="0in" fo:margin-bottom="0.0972in" style:contextual-spacing="false" fo:line-height="115%"/>
-  </style:style>
-  <style:style style:name="List" style:family="paragraph" style:parent-style-name="Text_20_body" style:class="list">
-   <style:text-properties style:font-size-asian="12pt" style:font-name-complex="Lohit Devanagari" style:font-family-complex="&apos;Lohit Devanagari&apos;"/>
-  </style:style>
-  <style:style style:name="Caption" style:family="paragraph" style:parent-style-name="Standard" style:class="extra">
-   <style:paragraph-properties fo:margin-top="0.0835in" fo:margin-bottom="0.0835in" style:contextual-spacing="false" text:number-lines="false" text:line-number="0"/>
-   <style:text-properties fo:font-size="12pt" fo:font-style="italic" style:font-size-asian="12pt" style:font-style-asian="italic" style:font-name-complex="Lohit Devanagari" style:font-family-complex="&apos;Lohit Devanagari&apos;" style:font-size-complex="12pt" style:font-style-complex="italic"/>
-  </style:style>
-  <style:style style:name="Index" style:family="paragraph" style:parent-style-name="Standard" style:class="index">
-   <style:paragraph-properties text:number-lines="false" text:line-number="0"/>
-   <style:text-properties style:font-size-asian="12pt" style:font-name-complex="Lohit Devanagari" style:font-family-complex="&apos;Lohit Devanagari&apos;"/>
-  </style:style>
-  <text:outline-style style:name="Outline">
-   <text:outline-level-style text:level="1" style:num-format="">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab"/>
-    </style:list-level-properties>
-   </text:outline-level-style>
-   <text:outline-level-style text:level="2" style:num-format="">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab"/>
-    </style:list-level-properties>
-   </text:outline-level-style>
-   <text:outline-level-style text:level="3" style:num-format="">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab"/>
-    </style:list-level-properties>
-   </text:outline-level-style>
-   <text:outline-level-style text:level="4" style:num-format="">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab"/>
-    </style:list-level-properties>
-   </text:outline-level-style>
-   <text:outline-level-style text:level="5" style:num-format="">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab"/>
-    </style:list-level-properties>
-   </text:outline-level-style>
-   <text:outline-level-style text:level="6" style:num-format="">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab"/>
-    </style:list-level-properties>
-   </text:outline-level-style>
-   <text:outline-level-style text:level="7" style:num-format="">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab"/>
-    </style:list-level-properties>
-   </text:outline-level-style>
-   <text:outline-level-style text:level="8" style:num-format="">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab"/>
-    </style:list-level-properties>
-   </text:outline-level-style>
-   <text:outline-level-style text:level="9" style:num-format="">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab"/>
-    </style:list-level-properties>
-   </text:outline-level-style>
-   <text:outline-level-style text:level="10" style:num-format="">
-    <style:list-level-properties text:list-level-position-and-space-mode="label-alignment">
-     <style:list-level-label-alignment text:label-followed-by="listtab"/>
-    </style:list-level-properties>
-   </text:outline-level-style>
-  </text:outline-style>
-  <text:notes-configuration text:note-class="footnote" style:num-format="1" text:start-value="0" text:footnotes-position="page" text:start-numbering-at="document"/>
-  <text:notes-configuration text:note-class="endnote" style:num-format="i" text:start-value="0"/>
-  <text:linenumbering-configuration text:number-lines="false" text:offset="0.1965in" style:num-format="1" text:number-position="left" text:increment="5"/>
- </office:styles>
- <office:automatic-styles>
-  <style:style style:name="P1" style:family="paragraph" style:parent-style-name="Standard">
-   <style:text-properties officeooo:rsid="000b73c7" officeooo:paragraph-rsid="000b73c7"/>
-  </style:style>
-  <style:page-layout style:name="pm1">
-   <style:page-layout-properties fo:page-width="8.5in" fo:page-height="11in" style:num-format="1" style:print-orientation="portrait" fo:margin-top="0.7874in" fo:margin-bottom="0.7874in" fo:margin-left="0.7874in" fo:margin-right="0.7874in" style:writing-mode="lr-tb" style:footnote-max-height="0in" loext:margin-gutter="0in">
-    <style:footnote-sep style:width="0.0071in" style:distance-before-sep="0.0398in" style:distance-after-sep="0.0398in" style:line-style="solid" style:adjustment="left" style:rel-width="25%" style:color="#000000"/>
-   </style:page-layout-properties>
-   <style:header-style/>
-   <style:footer-style/>
-  </style:page-layout>
- </office:automatic-styles>
- <office:master-styles>
-  <style:master-page style:name="Standard" style:page-layout-name="pm1"/>
- </office:master-styles>
- <office:body>
-  <office:text>
-   <text:sequence-decls>
-    <text:sequence-decl text:display-outline-level="0" text:name="Illustration"/>
-    <text:sequence-decl text:display-outline-level="0" text:name="Table"/>
-    <text:sequence-decl text:display-outline-level="0" text:name="Text"/>
-    <text:sequence-decl text:display-outline-level="0" text:name="Drawing"/>
-    <text:sequence-decl text:display-outline-level="0" text:name="Figure"/>
-   </text:sequence-decls>
-   <text:p text:style-name="P1">Mongo db</text:p>
-   <text:p text:style-name="P1">its no sql.Its arrange data in document base. From all must programming language mongo db can used.</text:p>
-   <text:p text:style-name="P1"/>
-   <text:p text:style-name="P1">Comparing mongo db with mysql</text:p>
-   <text:p text:style-name="P1">In my sql ,we create database first. Than table, In mongo db we create database inside cluster <text:s/>then collection which store collection of data like employee,course etc.</text:p>
-   <text:p text:style-name="P1">As table have row. Collection have document . Document store data are in like similar json object it not said to be json object.</text:p>
-  </office:text>
- </office:body>
-</office:document>
+Steps for making connection with cli
+    1. Navigate to mongo folder bin/exe and run it
+    2. Type mongosh for opening connection
+some command for mongodb
+Point to be noted while creating database
+	Until you create collection inside databse ,database will no longer list in “show dbs” cmd
+	After creating database, you need to create collection inside it for listing in in “show dbs” cmd;
+    1.   Databse cmd
+        a. show dbs //show all available database
+        b. use DATABASE_NAME // select database by name which you want to use
+        c. use DATABASE_NAME // use to create and select Database
+        d. Drop or deleting collection
+            i. Use DATABASE_NAME // To select db which you want to drop
+            ii. db.dropDatabase() // run this method to delete databse
+    2. For collection cmd
+        a. show collections; // list all collection of databse
+        b. Creating collection
+            i. Use  Database //select databse first where you want to create collection
+            ii. Run db.createCollection("collection_name");  //this method take parameter as COLLECTION_NAME to create collection
+        c. db.student.stats(); //describe collection
+        d. Creating collection with extra argument
+            i. Db.createCollection(“teachers”,{capped:true,size:10000000,max:100,autoIndexId:false});
+            ii. Example : db.createCollection("teachers",{capped:true,size:100000,max:100,autoIndexId:false})
+            iii. //if capped is true it will take fixed field value
+            iv. //size takes maximum amount size of file size
+            v. Max used to set how many number of document you want to store
+            vi. AutoIndexed  used for faster searching of same value by indexing it
+        e. Inserting data into collection
+            i. db.collection_name.insertOne({key:”value1”,key:value2,key:value3});//one data insertion
+                1. example ({name:”suraj”,age:23})
+                    a. after insertion it  will return acknowlegde as true and insertion id
+            ii. db.insertMany([{},{},{}]) //insert many data obect{} inside array[] to store multiple data.
+                1. example db.collection_name.insertMany([{name:"anil",age:20},{name:"manuz",age:32},{name:"subin",age:34,gender:"female"}])
+        f. To fetch data  (db.findOne() and db.find())
+            i. db.collection_name.find() 
+                1. return all inserted data with its insertion id or specific object id.Used to fetch many data at once
+            ii. db.findOne(name:”suraj”) // return object from collection which name is suraj. Only specific for single unique data
+            iii. db.collection_name.find({query},{projection})// multi parmeter value for fetching data with find() method
+                1. {query} part  is like where clause what data you need to fetch like{name:”suraj”,age:23}
+                2. {projection} part is like what key value you need to fetch like{name:true,_id:false}
+                    a. True set key value will only fetch
+                3. example: db.collection_name.find({name:"suraj",age:22},{name:true,_id:false});
+        g. updating data(updateOne() or update())
+            i. note updating method can use also for adding new key value pair by $set method while for removing key value there is $unset:{key:value} method
+            ii. updateOne({name:value},{$set:{key:vale}}) //for specific data only
+                1. 1st pass parameter object will select specific data by given key value pair and second one is $set parmerter which take object as parameter to update in key:value pair
+                2. Example: db.student.updateOne({name:"suraj"},{$set:{age:40}});
+            iii. updateOne() with object id
+                1. update by taking specific object id 
+                    a. example : db.student.updateOne({_id: ObjectId("651009f43ab28f179d7e656d")},{$set:{name:"harry potter"}});
+            iv. updateOne() with $unset:{}
+                1. $unset method used to remove key value pair from column
+                2. Example: db.student.updateOne({_id: ObjectId("651009f43ab28f179d7e656d")},{$unset:{name:"harry potter"}});
+            v. updateMany({},{$set:{key:value}})// to update many field in document
+                1. takes two parameter 1st parmeter is empty object{} which means you selecting all the field for updation,2nd parameter is {$set;{key:value}} which means what key value you want to update or add to document field
+                2. example: db.student.updateMany({},{$set:{hobby:"playing"}});
+            vi. updateMany({key:{$exist:false}},{$set:{key:value}})//$exist will select document which have its key column false means do not select that key field  and another parameter is {$set:{}}which used to update docunet field
+                1. example: db.student.updateMany({dob:{$exists:false}},{$set:{hobby:"typing"}});
+            vii. updateMany({key:value},{$set:{key:value}})// updating may field with selecting available key field
+                1. example: db.student.updateMany({name:"suraj"},{$set:{hobby:"programming"}});
+            viii. updating inner object (db.collection_name.updateOne({“key.key”:value},{$set:{key.key:value}}))
+                1. example: db.student.updateOne({"address.temp":"koteshwor"},{$set:{"address.temp":"narephat"}})
+        h. deleting document (deleteOne() or deleteMany())
+            i. deleteOne({key:value}) //take parameter in key value field to delete specific field
+                1. example: db.student.deleteOne({name:"surajssss"});
+            ii. deleteMany({key:value})// delete multiple document field which have selected by {key:value}parameter
+                1. example: db.student.deleteMany({status:0});
+            iii. db.student.deleteMany({status:{$exists:true}});
+                1. delete all the field which have status key 
+            iv. deletion with inner key object(db.collection_name.deleteOne({“key.key”:value})
+                1. example: db.student.deleteOne({ "status.age": 3 })
+                    a. find inner key and delete the field
+    3. Date function 
+        a. new Date() // this method take current date automatically while insertion
+            i. example db.collection_name.insertOne({name:”suraj”,dob: new Date()})
+    4. null value
+        a. null // if we do not have  any value for variable but need to further use null value is required
+            i. example example db.collection_name.insertOne({name:”suraj”,clgJoin: new Date(),graduationDate:null})
+    5. muti value variable in collection object
+        a. key:[] // use array to store multiple value
+            i. example db.collection_name.insertOne({name:"Harry",age:20,subject:["economics","distributed","science"]})
+    6. nested document
+        a. key:{} // use object to store nested data
+            i. example db.collection_name.insertOne({name:"Harry",age:20,address:{temp:"koteshwor",permanent:"Bardibas"},dob:new Date()});
+    7. Aggregate method
+        a. sort({name:1})// take parameter 1 for ascending and -1 for descending 
+            i. Example db.collection_name.find().sort({name:1 });// take parameter as -1 or 1 to sort name by key
+        b. limit(2) take parameter how much data you need
+            i. db.collection_name.find().limit(2);//
+        c. sort() with limit()
+            i. db.collection_name.find().sort({age:1}).limit(2); // returns 2 data entries by sorting
+    8. Operator
+Since operatore are denoted by $ symbol
+        a. Comparison operator
+            i. $ne (key:{$ne:value}}) // ne means not equal return all the name which do not match with your given key value
+                1. Example : db.student.find({name:{$ne:"suraj"}});
+            ii. $lt (key:{$lt:value) // lt means less than return all the field which is less than your given value
+                1. Example : db.student.find({age:{$lt:22}});
+            iii. $lte (key:{$lte:value) // lte means less than or equal to, return all the field which is less or equal to than your given value
+                1. Example : db.student.find({age:{$lte:22}});
+            iv. $gt (key:{$gt:value) // gt means greater than ,return all the field which is greater than your given value
+                1. Example : db.student.find({age:{$gt:22}});
+            v. $gte (key:{$gte:value) // gte means greater than or equal to, return all the field which is gretaer or equal to than your given value
+                1. Example : db.student.find({age:{$gte:22}});
+            vi. Between operator(key:{$gte:vale,$lte:value}) // find grater and less than number according to your given value
+                1. Example : db.student.find({age:{$gte:20,$lte:20}});
+            vii. $in (key:{$in:[“value1”,”value2”]}) //in means include,return all field which match with given key includes array value
+                1. Example: db.student.find({name:{$in:["suraj","anil"]}});
+            viii. $nin (key:{$nin:[“value1”,”value2”]}) //nin means not inclue,return all field which match with given  key and do not includes array value
+                1. Example: db.student.find({name:{$nin:["suraj","anil"]}});
+        b. Logical opertors
+Logical operators return data based on expressions that evaluate true or false
+            i. $and ($and:[{key:“value1”},{key:”value2”}]) // return true if both condition match then reurn matched data
+                1. Example : db.student.find({$and:[{name:"suraj"},{age:40}]});
+            ii. $and with condtition(db.student.find({$and:[{key:"value"},{key:{$lte:value}}]});) // return all the field which match with given condition
+                1. Example : db.student.find({$and:[{name:"suraj"},{age:{$lte:45}}]});
+            iii. $or ($or:[{key:"value"]},{key:{$lte:value}]})// return data If any condition is true
+                1. db.student.find({$or:[{name:"suraj"},{age:{$lte:45}}]});
+            iv. $nor  ($nor:[{key:"value"]},{key:{$lte:value}]})// return data where both condition are false
+                1. Example : db.student.find({$nor:[{hobby:"programming"},{age:{$lte:40}}]});
+            v. $not ({key:{$not:{$lte:value}}}); retrun all the field except given value also  returns null assign value
+                1. Example : db.student.find({age:{$not:{$lte:30}}});
+    9. Indexes
+        a. db.student.find({name:"suraj"}).explain("executionStats");
+            i. examine each document one by one 
+            ii. perform linear serach
+            iii. fast searching
+        b. creating or getting index
+            i. db.student.createIndex({name:1});
+            ii. db.student.getIndexes();
+                1. give all the indexes of database
+            iii. db.student.dropIndexes("index_name");
+                1. db.student.dropIndexes("name_1");
+    10. join in mongo db
+db.orders.aggregate([
+  {
+    $lookup:
+    {
+      from: "products",
+      localField: "product_id",
+      foreignField: "_id",
+      as: "orderDetails"
+    }
+  }
+])
+
+
+    11. multiple join
+db.users.aggregate([
+  {
+    $match: {
+      _id: ObjectId("user_id") // Replace with the actual user _id
+    }
+  },
+  {
+    $lookup: {
+      from: "orders",
+      localField: "_id",
+      foreignField: "user_id",
+      as: "user_orders"
+    }
+  },
+  {
+    $lookup: {
+      from: "products",
+      localField: "user_orders.product_id",
+      foreignField: "_id",
+      as: "user_order_products"
+    }
+  }
+]);
