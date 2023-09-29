@@ -1,0 +1,66 @@
+[{
+  "_id": {
+    "$oid": "650feb073ab28f179d7e6569"
+  },
+  "name": "suraj",
+  "age": 40,
+  "hobby": "programming"
+},
+{
+  "_id": {
+    "$oid": "651004463ab28f179d7e656a"
+  },
+  "name": "anil",
+  "age": 20,
+  "hobby": "programming"
+},
+{
+  "_id": {
+    "$oid": "651004463ab28f179d7e656b"
+  },
+  "name": "manuz",
+  "age": 32,
+  "hobby": "typing"
+},
+{
+  "_id": {
+    "$oid": "651004463ab28f179d7e656c"
+  },
+  "name": "subin",
+  "age": 34,
+  "gender": "female",
+  "hobby": "typing"
+},
+{
+  "_id": {
+    "$oid": "651009f43ab28f179d7e656d"
+  },
+  "name": "harry potter",
+  "age": 20,
+  "subject": [
+    "economics",
+    "distributed",
+    "science"
+  ],
+  "address": {
+    "temp": "narephat",
+    "permanent": "Bardibas"
+  },
+  "dob": {
+    "$date": "2023-09-24T10:05:40.249Z"
+  },
+  "hobby": "cricket"
+},
+{
+  "_id": {
+    "$oid": "65114b5004993d306a6b96f1"
+  },
+  "name": "suraj"
+},
+{
+  "_id": {
+    "$oid": "6511649c04993d306a6b96f9"
+  },
+  "name": "person1",
+  "age": null
+}]
